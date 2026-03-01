@@ -6,24 +6,31 @@
 2. **BBR 加速** - 开启 TCP BBR 拥塞控制算法，提升网络性能
 3. **Sing-box 部署** - 安装并配置 Sing-box 代理工具
 
+
+
 ## 使用方法
+
+- 一键安装
 
 ```shell
 curl -Ls https://raw.githubusercontent.com/frank-lam/vps-ss/master/sing-box/install-sb-bbr-on-centos9s.sh | sudo bash
 ```
+
+- 可选
+
+```shell
+# 限制磁盘读写速度
+systemctl set-property user-0.slice IOWriteBandwidthMax="/dev/vda1 120M" IOReadBandwidthMax="/dev/vda1 120M"
+```
+
+
 
 ## 系统要求
 
 - 操作系统：CentOS 9 Stream (x86_64)
 - 架构：64 位
 
-## 脚本功能
 
-| 步骤 | 说明 |
-|------|------|
-| Wget 安装 | 从镜像源下载安装 wget-1.21.1-7.el9.x86_64.rpm |
-| BBR 加速 | 配置 fq 队列+BBR 拥塞控制算法 |
-| Sing-box | 使用 233boy/sing-box 一键脚本安装 |
 
 ## 验证
 
